@@ -1,0 +1,8 @@
+.DS_Store
+DerivedData/
+build/
+*.xcresult
+*.xccheckout
+xcuserdata/
+ClearDay.xcodeproj/project.xcworkspace/xcuserdata/
+ClearDay.xcodeproj/xcuserdata/

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+sha="$(git rev-parse --short HEAD)"
+timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
+tag="checkpoint/${timestamp}-${sha}"
+
+if git rev-parse --verify --quiet "refs/tags/$tag" >/dev/null; then
+  exit 0
+fi
+
+git tag -a "$tag" -m "Automatic checkpoint for $sha"
+echo "Created rollback checkpoint $tag"
