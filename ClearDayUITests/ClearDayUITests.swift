@@ -19,7 +19,7 @@ final class ClearDayUITests: XCTestCase {
         titleField.typeText("Prepare launch brief")
 
         app.buttons["composer.previewButton"].tap()
-        XCTAssertTrue(app.otherElements["planPreview"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["Clarify the finish line"].waitForExistence(timeout: 3))
 
         app.buttons["composer.saveButton"].tap()
         app.tabBars.buttons["Tasks"].tap()
