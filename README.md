@@ -56,7 +56,17 @@ Install the repository hooks once after cloning:
 ./scripts/install-hooks.sh
 ```
 
-The pre-commit hook runs `scripts/verify.sh`. After each commit, the post-commit hook creates an annotated `checkpoint/<timestamp>-<sha>` tag. Publish checkpoint tags with `git push --follow-tags`.
+The pre-commit hook runs `scripts/verify.sh`. Commits do not create tags. Create
+a checkpoint only for a clean, pushed milestone; the script reruns verification
+before creating and pushing an annotated tag:
+
+```bash
+./scripts/create-checkpoint.sh planner-alpha
+```
+
+Checkpoint tags use
+`checkpoint/<purpose>/<timestamp>-<sha>`. Ordinary commits stay quiet, while a
+checkpoint means the exact commit was clean, pushed, and verified.
 
 Restore without rewriting history:
 

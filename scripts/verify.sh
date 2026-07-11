@@ -29,7 +29,7 @@ else
 fi
 xcrun swiftc -frontend -parse "${test_swift_files[@]}"
 
-if xcrun simctl list runtimes 2>/dev/null | grep -Eq 'iOS .*\(available\)'; then
+if xcrun simctl list runtimes 2>/dev/null | grep -E '^iOS ' | grep -Fqv '(unavailable)'; then
   echo "Building for iOS Simulator..."
   xcodebuild \
     -project ClearDay.xcodeproj \

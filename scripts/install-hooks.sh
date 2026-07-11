@@ -5,6 +5,6 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
 
 git config core.hooksPath .githooks
-chmod +x .githooks/pre-commit .githooks/post-commit scripts/*.sh
+chmod +x .githooks/* scripts/*.sh
 
 echo "Installed ClearDay hooks from .githooks/."
